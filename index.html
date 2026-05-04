@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Admin 2026</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    header {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #38bdf8;
+    }
+    .container {
+      display: flex;
+      height: calc(100vh - 64px);
+    }
+    aside {
+      width: 220px;
+      background: #020617;
+      padding: 1rem;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside li {
+      margin: 1rem 0;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+    aside li:hover {
+      color: #38bdf8;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .card {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    button {
+      background: #38bdf8;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>☁️ Cloud Admin 2026</h1>
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Servers</a>
+    <a href="#">Storage</a>
+    <a href="#">Settings</a>
+  </nav>
+</header>
+
+<div class="container">
+  <aside>
+    <ul>
+      <li onclick="showSection('dashboard')">Dashboard</li>
+      <li onclick="showSection('compute')">Compute</li>
+      <li onclick="showSection('network')">Network</li>
+      <li onclick="showSection('security')">Security</li>
+    </ul>
+  </aside>
+
+  <main id="content">
+    <!-- Dynamic content goes here -->
+  </main>
+</div>
+
+<script>
+  const content = document.getElementById('content');
+
+  function showSection(section) {
+    if (section === 'dashboard') {
+      content.innerHTML = `
+        <div class="card">
+          <h2>System Overview</h2>
+          <div class="grid">
+            <div class="card"><div class="metric">12</div><div>Active Servers</div></div>
+            <div class="card"><div class="metric">3.2TB</div><div>Storage Used</div></div>
+            <div class="card"><div class="metric">98%</div><div>Uptime</div></div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (section === 'compute') {
+      content.innerHTML = `
+        <div class="card">
+          <h2>Compute Instances</h2>
+          <p>Manage virtual machines and containers.</p>
+          <button onclick="alert('Launching new instance...')">Launch Instance</button>
+        </div>
+      `;
+    }
+
+    if (section === 'network') {
+      content.innerHTML = `
+        <div class="card">
+          <h2>Network</h2>
+          <p>Configure VPCs, firewalls, and routing.</p>
+        </div>
+      `;
+    }
+
+    if (section === 'security') {
+      content.innerHTML = `
+        <div class="card">
+          <h2>Security</h2>
+          <p>IAM roles, policies, and access control.</p>
+        </div>
+      `;
+    }
+  }
+
+  // Load default
+  showSection('dashboard');
+</script>
+
+</body>
+</html>
